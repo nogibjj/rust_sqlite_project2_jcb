@@ -29,3 +29,5 @@ This project is ideal for quick implementation using GitHub Codespaces.
 2) Create a new Codespace
 3) `cd rust_yahoo_finance` to cd into the Rust yahoo finance project
 4) `cargo run -- summary --ticker AAPL --interval 1d --period 1mo` to print out summary statistics for AAPL daily data for the last 1 month. Please feel free to play around with these inputs and report back any issues
+
+![output](https://github.com/nogibjj/rust_mini_project7_JCB/assets/33461065/3afeb207-a3ce-4911-939e-a3911f3f8c90)
