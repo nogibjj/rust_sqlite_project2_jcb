@@ -5,7 +5,7 @@
 
 use polars::prelude::*;
 // use std::time::{Duration, UNIX_EPOCH};
-use tokio_test;
+// use tokio_test;
 use yahoo_finance_api as yahoo;
 
 pub struct FinData {
