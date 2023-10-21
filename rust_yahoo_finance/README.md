@@ -24,6 +24,8 @@ The structure then has a method print_summary to print out each OHLC bar as well
 
 Use `main.rs` to call the handle CLI and `lib.rs` to handle logic and import `clap` in `Cargo.toml` as shown in this project.
 
+![Workflow](https://github.com/nogibjj/rust_mini_project7_JCB/assets/33461065/5db7d83f-a7a3-4cb1-bba5-75e521247fb5)
+
 ### Implementation
 
 This project is ideal for quick implementation using GitHub Codespaces. 
