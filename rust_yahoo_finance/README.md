@@ -1,3 +1,6 @@
+[![Clippy](https://github.com/nogibjj/rust_mini_project7_JCB/actions/workflows/lint.yml/badge.svg)](https://github.com/nogibjj/rust_mini_project7_JCB/actions/workflows/lint.yml)
+[![Tests](https://github.com/nogibjj/rust_mini_project7_JCB/actions/workflows/tests.yml/badge.svg)](https://github.com/nogibjj/rust_mini_project7_JCB/actions/workflows/tests.yml)
+
 # IDS 706 Week 7 Mini - project
 
 
