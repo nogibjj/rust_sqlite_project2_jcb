@@ -4,7 +4,7 @@
  */
 
 use polars::prelude::*;
-use rusqlite::{params, Connection, Result, ToSql};
+use rusqlite::{Connection, Result, ToSql};
 use std::error::Error;
 use yahoo_finance_api as yahoo;
 
@@ -89,17 +89,20 @@ pub fn insert_data(
         .map(|s| s.iter())
         .collect::<Vec<_>>();
 
-    for row in 0..df.height() {
+    // prefix row with _ to avoid unused variable warning
+    for _row in 0..df.height() {
+        // define a new type for the tuple of parameters
+        type RowParams = (
+            Box<dyn ToSql>,
+            Box<dyn ToSql>,
+            Box<dyn ToSql>,
+            Box<dyn ToSql>,
+            Box<dyn ToSql>,
+            Box<dyn ToSql>,
+            Box<dyn ToSql>,
+        );
         // create a tuple of parameters to pass to the statement. Set each parameter to 0
-        let mut params: (
-            Box<dyn ToSql>,
-            Box<dyn ToSql>,
-            Box<dyn ToSql>,
-            Box<dyn ToSql>,
-            Box<dyn ToSql>,
-            Box<dyn ToSql>,
-            Box<dyn ToSql>,
-        ) = (
+        let mut params: RowParams = (
             Box::new(0),
             Box::new(0),
             Box::new(0),
