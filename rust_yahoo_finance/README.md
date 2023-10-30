@@ -50,4 +50,6 @@ This project is ideal for quick implementation using GitHub Codespaces.
 4) `cargo run -- summary --ticker AAPL --interval 1d --period 1mo` to print out summary statistics for AAPL daily data for the last 1 month. Please feel free to play around with these inputs and report back any issues
 5) `cargo run -- list-tables` to list all tables in the database
 
+** .exe binary **
+
 ** add some screenshots of the output **
