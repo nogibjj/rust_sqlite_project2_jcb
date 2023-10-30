@@ -1,16 +1,19 @@
-[![Clippy](https://github.com/nogibjj/rust_mini_project7_JCB/actions/workflows/lint.yml/badge.svg)](https://github.com/nogibjj/rust_mini_project7_JCB/actions/workflows/lint.yml)
-[![Tests](https://github.com/nogibjj/rust_mini_project7_JCB/actions/workflows/tests.yml/badge.svg)](https://github.com/nogibjj/rust_mini_project7_JCB/actions/workflows/tests.yml)
+[![Clippy](https://github.com/nogibjj/rust_sqlite_project2_jcb/actions/workflows/lint.yml/badge.svg)](https://github.com/nogibjj/rust_sqlite_project2_jcb/actions/workflows/lint.yml)
+[![Tests](https://github.com/nogibjj/rust_sqlite_project2_jcb/actions/workflows/tests.yml/badge.svg)](https://github.com/nogibjj/rust_sqlite_project2_jcb/actions/workflows/tests.yml)
 
-# IDS 706 Week 7 Mini - project
+# IDS 706 Individual Project 2
 
 
-## Setting up a command-line tool using Rust to print out financial data using the Yahoo Finance API
+## Rust CLI Binary with SQLite
+
 
 ### The project in Rust
 
-https://github.com/nogibjj/rust_mini_project7_JCB
+https://github.com/nogibjj/rust_sqlite_project2_jcb
 
-In this project I've set up a command-line tool to print out summary statistics on any financial instrument found on yahoo_finance_api.
+### Yahoo finance API & summary statistics
+
+In this project I've set up a command-line tool to print out summary statistics on any financial instrument found on yahoo_finance_api and perform various operations on an SQLite database.
 
 I've created a Rust structure called FinData that takes 3 arguments:
 
@@ -18,13 +21,24 @@ I've created a Rust structure called FinData that takes 3 arguments:
 - interval | the tick interval for the data. This defines the OHLC bar size ex: 1d, 60m, 1m
 - period | the time range for which you wish to download the data ex: 1mo, 6mo, 1y
 
-The structure then has a method print_summary to print out each OHLC bar as well as summary statistics. 
+The structure then has a method print_summary to print out each OHLC bar as well as summary statistics for the given inputs. 
+
+### SQLite database
+
+The project additionally allows the following CRUD operations on an SQLite database:
+
+- CREATE: creat_table | creates a table in the database with the given table_name
+- READ: 
+    - list_tables | lists all tables in the database
+    - ** update!! add read_table to read the data from the table with the given table_name
+- UPDATE: insert_data | inserts the data from the FinData structure into the table with the given table_name
+- DELETE: ** update!! add delete interface to delete data from the database
 
 ### Command-line tool
 
 Use `main.rs` to call the handle CLI and `lib.rs` to handle logic and import `clap` in `Cargo.toml` as shown in this project.
 
-![Workflow](https://github.com/nogibjj/rust_mini_project7_JCB/assets/33461065/5db7d83f-a7a3-4cb1-bba5-75e521247fb5)
+** update system architecture **
 
 ### Implementation
 
@@ -34,5 +48,6 @@ This project is ideal for quick implementation using GitHub Codespaces.
 2) Create a new Codespace
 3) `cd rust_yahoo_finance` to cd into the Rust yahoo finance project
 4) `cargo run -- summary --ticker AAPL --interval 1d --period 1mo` to print out summary statistics for AAPL daily data for the last 1 month. Please feel free to play around with these inputs and report back any issues
+5) `cargo run -- list-tables` to list all tables in the database
 
-![output](https://github.com/nogibjj/rust_mini_project7_JCB/assets/33461065/3afeb207-a3ce-4911-939e-a3911f3f8c90)
+** add some screenshots of the output **
