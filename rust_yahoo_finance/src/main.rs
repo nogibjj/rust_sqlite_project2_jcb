@@ -1,6 +1,6 @@
 /* Command-line interface for FinData */
 use clap::Parser;
-use yahoo_finance_demo::{insert_data, FinData};
+use yahoo_finance_demo::{insert_data, list_tables, FinData};
 
 // Command-line interface for FinData
 
@@ -46,6 +46,11 @@ fn main() {
             yahoo_finance_demo::create_table(&table_name, &conn).unwrap();
             insert_data(&mut fin_data.df, &table_name, &conn).unwrap();
         }
+        // Some(Commands::ListTables) => {
+        //     // Handle the new subcommand
+        //     let conn = yahoo_finance_demo::create_connection().unwrap();
+        //     list_tables(&conn).unwrap();
+        // }
         None => {
             println!("No subcommand specified");
         }

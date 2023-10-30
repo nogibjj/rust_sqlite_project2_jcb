@@ -4,7 +4,7 @@
  */
 
 use polars::prelude::*;
-use rusqlite::{Connection, Result, ToSql};
+use rusqlite::{params, Connection, Result, ToSql};
 use std::error::Error;
 use yahoo_finance_api as yahoo;
 
@@ -173,3 +173,15 @@ pub fn insert_data(
     }
     Ok(())
 }
+
+// // create a function to list all tables in findata.db
+// pub fn list_tables(conn: &Connection) -> Result<()> {
+//     let mut stmt = conn.prepare("SELECT name FROM sqlite_master WHERE type='table';")?;
+//     let rows = stmt.query_map(params![], |row| Ok(row.get(0)?))?;
+
+//     for row in rows {
+//         println!("table: {:?}", row.unwrap());
+//     }
+
+//     Ok(())
+// }
