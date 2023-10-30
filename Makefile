@@ -2,10 +2,10 @@ format:
 	cargo fmt --quiet
 
 lint:
-	cargo clippy --quiet
+	cd rust_yahoo_finance && cargo clippy --quiet
 
 test:
-	cargo test --quiet
+	cd rust_yahoo_finance && cargo test --quiet
 
 run:
 	cargo run 
