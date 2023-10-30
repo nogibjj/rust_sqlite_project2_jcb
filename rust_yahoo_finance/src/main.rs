@@ -19,6 +19,8 @@ struct Cli {
 enum Commands {
     #[clap(name = "summary")]
     Summary(SummaryCommand),
+    #[clap(name = "list-tables")]
+    ListTables,
 }
 
 #[derive(Parser)]
@@ -46,11 +48,17 @@ fn main() {
             yahoo_finance_demo::create_table(&table_name, &conn).unwrap();
             insert_data(&mut fin_data.df, &table_name, &conn).unwrap();
         }
-        // Some(Commands::ListTables) => {
-        //     // Handle the new subcommand
-        //     let conn = yahoo_finance_demo::create_connection().unwrap();
-        //     list_tables(&conn).unwrap();
-        // }
+        // create new subcommand that uses list_tables() and then prints all tables in findata.db
+        Some(Commands::ListTables) => {
+            let conn = yahoo_finance_demo::create_connection().unwrap();
+            let tables = list_tables(&conn).unwrap();
+            println!("Tables in findata.db:");
+            // use enumerate to print tables with index
+            for (i, table) in tables.iter().enumerate() {
+                println!("Table{}: {}", i + 1, table);
+            }
+        }
+
         None => {
             println!("No subcommand specified");
         }
